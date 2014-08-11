@@ -125,7 +125,7 @@ class RefreshToken(models.Model):
     * :attr:`expired` - ``boolean``
     """
     user = models.ForeignKey(AUTH_USER_MODEL)
-    token = models.CharField(max_length=255, default=long_token)
+    token = models.CharField(max_length=255, default=long_token, db_index=True)
     access_token = models.OneToOneField(AccessToken,
             related_name='refresh_token')
     client = models.ForeignKey(Client)
